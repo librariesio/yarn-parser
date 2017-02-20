@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 app.post("/parse/", bodyParser.text({type: '*/*'}), function(req,res){
-  var dependencies = yarn.parse(str)
+  var dependencies = yarn.parse(req.body)
   var deps = []
   Object.keys(dependencies).forEach((dep) => {
     deps.push({
