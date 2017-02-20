@@ -1,0 +1,30 @@
+{
+  "name": "yarn-parser",
+  "version": "1.0.0",
+  "description": "Tiny web service for parsing yarn.lock files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/librariesio/yarn-parser.git"
+  },
+  "keywords": [
+    "yarn",
+    "parse",
+    "lock",
+    "dependencies"
+  ],
+  "author": "Andrew Nesbitt",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/librariesio/yarn-parser/issues"
+  },
+  "homepage": "https://github.com/librariesio/yarn-parser#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "yarn": "^0.21.0"
+  }
+}
