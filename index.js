@@ -13,6 +13,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.bodyParser({limit: '5mb'}));
+
 app.post("/parse/", bodyParser.text({type: '*/*'}), function(req,res){
   var dependencies = yarn.parse(req.body)
   var deps = []
