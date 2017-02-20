@@ -5,15 +5,13 @@ var bodyParser = require('body-parser')
 var app = express()
 var port = process.env.PORT || 5000;
 
-app.use(bodyParser.text());
+app.use(bodyParser.text({limit: '5mb'}));
 app.disable('x-powered-by');
 
 app.use(function(req, res, next) {
   res.set('Access-Control-Allow-Origin', '*');
   next();
 });
-
-app.use(express.bodyParser({limit: '5mb'}));
 
 app.post("/parse/", bodyParser.text({type: '*/*'}), function(req,res){
   var dependencies = yarn.parse(req.body)
