@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": "7.9"
+    "node": "7.10"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,6 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "yarn": "^0.21.0"
+    "yarn": "^0.24.6"
   }
 }
