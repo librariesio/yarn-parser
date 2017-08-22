@@ -1,4 +1,4 @@
-var yarn = require('yarn/lib/lockfile/wrapper.js')
+var yarn = require('@yarnpkg/lockfile')
 var express = require('express')
 var bodyParser = require('body-parser')
 
