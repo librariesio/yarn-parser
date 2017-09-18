@@ -2,6 +2,21 @@
 
 A tiny node.js web service for parsing dependency information from `yarn.lock` files for [Libraries.io](https://libraries.io).
 
+## Docker
+
+You can use Docker to run yarn-parser
+
+First, install Docker. If you've got run macOS or Windows, Docker for Mac/Windows makes this really easy.
+
+If you have Windows Home Edition, you'll need to download and run Docker Toolbox.
+Then, run:
+
+    docker run -it -e PORT=5000 -p 5000:5000 yarn-parser
+
+yarn-parser will be running on http://localhost:5000.
+
+Note: You can add PORT to a .env file instead of supplying them directly on the command-line.
+
 ## Development
 
 Source hosted at [GitHub](http://github.com/librariesio/yarn-parser).
