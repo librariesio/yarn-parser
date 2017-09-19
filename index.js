@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 
 app.post("/parse/", bodyParser.text({type: '*/*', limit: '5mb'}), function(req,res){
-  var dependencies = yarn.parse(req.body)
+  var dependencies = yarn.parse(req.body).object
   var deps = []
   Object.keys(dependencies).forEach((dep) => {
     deps.push({
