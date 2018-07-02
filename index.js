@@ -26,6 +26,10 @@ app.post("/parse/", bodyParser.text({type: '*/*', limit: '5mb'}), function(req,r
   res.json(deps)
 });
 
+app.get("/", function(req,res) {
+  res.send("OK")
+});
+
 app.use(function(err, req, res, next) {
   console.error('ERR:', err);
   console.error('STACK:', err.stack);
