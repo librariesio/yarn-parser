@@ -16,8 +16,12 @@ app.post("/parse/", bodyParser.text({type: '*/*', limit: '5mb'}), function(req,r
   var dependencies = yarn.parse(req.body).object
   var deps = []
   Object.keys(dependencies).forEach((dep) => {
+    var name = dep.split('@')[0]
+    if (/^@/.test(dep)) {
+      name = '@' + dep.split('@')[1]
+    }
     deps.push({
-      name: dep.split('@')[0],
+      name: name,
       version: dependencies[dep].version,
       type: 'runtime'
     })
