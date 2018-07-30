@@ -1,7 +1,7 @@
-var yarn = require('@yarnpkg/lockfile')
+
 var express = require('express')
 var bodyParser = require('body-parser')
-
+var manifestParser = require('./lib/manifest-parser')
 var app = express()
 var port = process.env.PORT || 5000;
 
@@ -13,17 +13,8 @@ app.use(function(req, res, next) {
 });
 
 app.post("/parse/", bodyParser.text({type: '*/*', limit: '5mb'}), function(req,res){
-  var dependencies = yarn.parse(req.body).object
-  var deps = []
-  Object.keys(dependencies).forEach((dep) => {
-    deps.push({
-      name: dep.split('@')[0],
-      version: dependencies[dep].version,
-      type: 'runtime'
-    })
-  })
-
-  res.json(deps)
+  var deps = manifestParser.parseDependencies(req.body);
+  res.json(deps);
 });
 
 app.get("/", function(req,res) {
