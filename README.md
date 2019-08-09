@@ -11,7 +11,8 @@ First, install Docker. If you've got run macOS or Windows, Docker for Mac/Window
 If you have Windows Home Edition, you'll need to download and run Docker Toolbox.
 Then, run:
 
-    docker run -it -e PORT=5000 -p 5000:5000 yarn-parser
+    docker pull librariesio/yarn-parser
+    docker run -it -e PORT=5000 -p 5000:5000 librariesio/yarn-parser
 
 yarn-parser will be running on http://localhost:5000.
 
