@@ -6,7 +6,7 @@ A tiny node.js web service for parsing dependency information from `yarn.lock` f
 
 You can use Docker to run yarn-parser
 
-First, install Docker. If you've got run macOS or Windows, Docker for Mac/Windows makes this really easy.
+First, install Docker. If you run macOS or Windows, Docker for Mac/Windows makes this really easy.
 
 If you have Windows Home Edition, you'll need to download and run Docker Toolbox.
 Then, run:
