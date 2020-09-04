@@ -29,3 +29,12 @@ it('Correctly parses packages with plain old names', function(done) {
   expect(manifestParser.getNameFromVersionString('uuid@~1.1.2')).to.equal('uuid');
   done();
 });
+
+it('parses a yarn.lock with a git reference', function(done) {
+  var tmp = fs.readFileSync('./test/fixtures/yarn-with-git-repo.lock', 'utf-8');
+  var deps = manifestParser.parseDependencies(tmp);
+  expect(deps[0].name).to.equal('vue');
+  expect(deps[0].version).to.equal('2.6.12');
+  expect(deps[0].requirement).to.equal('https://github.com/vuejs/vue.git#v2.6.12');
+  done();
+})
