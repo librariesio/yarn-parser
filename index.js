@@ -24,6 +24,7 @@ app.get("/", function(req,res) {
 app.use(function(err, req, res, next) {
   console.error('ERR:', err);
   console.error('STACK:', err.stack);
+  console.error('FILE:' req.body);
   res.status(500).send({error: 'Something went wrong.'});
 });
 
