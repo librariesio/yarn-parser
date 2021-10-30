@@ -29,29 +29,29 @@ describe('splitNameAndVersionString', function() {
   });
 });
 
-describe('parsing v1', function() {
+describe('parsing v2', function() {
   it('Parses body', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn.v1.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn.v2.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
-    expect(deps.length).to.equal(140);
+    expect(deps.length).to.equal(132);
     done();
   });
 
   it('Correctly parses yarn.lock', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn.v1.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn.v2.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
     expect(deps[0].name).to.equal('@yarnpkg/lockfile');
-    expect(deps[0].version).to.equal('1.0.0');
+    expect(deps[0].version).to.equal('1.1.0');
     expect(deps[1].name).to.equal('accepts');
     expect(deps[2].name).to.equal('ajv');
     done();
   });
   it('parses a yarn.lock with a git reference', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn-with-git-repo.v1.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn-with-git-repo.v2.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
-    expect(deps[0].name).to.equal('vue');
-    expect(deps[0].version).to.equal('2.6.12');
-    expect(deps[0].requirement).to.equal('https://github.com/vuejs/vue.git#v2.6.12');
+    expect(deps[0].name).to.equal('vuejs');
+    expect(deps[0].version).to.equal('2.5.0');
+    expect(deps[0].requirement).to.equal('https://github.com/vuejs/vue.git');
     done();
   });
 });
