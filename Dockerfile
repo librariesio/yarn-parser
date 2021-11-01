@@ -9,4 +9,4 @@ RUN yarn install --production
 
 COPY . /usr/src/app
 
-CMD npm start
+CMD yarn start
