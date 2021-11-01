@@ -29,16 +29,16 @@ describe('splitNameAndVersionString', function() {
   });
 });
 
-describe('parsing', function() {
+describe('parsing v1', function() {
   it('Parses body', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn.v1.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
     expect(deps.length).to.equal(140);
     done();
   });
 
   it('Correctly parses yarn.lock', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn.v1.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
     expect(deps[0].name).to.equal('@yarnpkg/lockfile');
     expect(deps[0].version).to.equal('1.0.0');
@@ -47,7 +47,7 @@ describe('parsing', function() {
     done();
   });
   it('parses a yarn.lock with a git reference', function(done) {
-    var tmp = fs.readFileSync('./test/fixtures/yarn-with-git-repo.lock', 'utf-8');
+    var tmp = fs.readFileSync('./test/fixtures/yarn-with-git-repo.v1.lock', 'utf-8');
     var deps = manifestParser.parseDependencies(tmp);
     expect(deps[0].name).to.equal('vue');
     expect(deps[0].version).to.equal('2.6.12');

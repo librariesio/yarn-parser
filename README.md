@@ -11,8 +11,10 @@ First, install Docker. If you run macOS or Windows, Docker for Mac/Windows makes
 If you have Windows Home Edition, you'll need to download and run Docker Toolbox.
 Then, run:
 
+``` shell
     docker pull librariesio/yarn-parser
     docker run -it -e PORT=5000 -p 5000:5000 librariesio/yarn-parser
+```
 
 yarn-parser will be running on http://localhost:5000.
 
@@ -22,6 +24,12 @@ Note: You can add PORT to a .env file instead of supplying them directly on the 
 
 Source hosted at [GitHub](http://github.com/librariesio/yarn-parser).
 Report issues/feature requests on [GitHub Issues](http://github.com/librariesio/yarn-parser/issues). Follow us on Twitter [@librariesio](https://twitter.com/librariesio). We also hangout on [Slack](http://slack.libraries.io).
+
+To run locally:
+
+```
+docker run -it -e PORT=5000 -p 5000:5000 $(docker build -q .)
+```
 
 ### Note on Patches/Pull Requests
 
