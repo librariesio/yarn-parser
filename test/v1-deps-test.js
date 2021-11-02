@@ -27,7 +27,7 @@ describe('splitNameAndVersionString', function() {
     ).to.equal('git+ssh://git@github.com/myorg/private-dep.git#v1.2.3');
     done();
   });
-  it('Correctly parses multiple version requirements for a single package', function(done) {
+  it('Correctly parses multiple requirements for a single package', function(done) {
     expect(manifestParser.getVersionFromVersionString('tweetnacl@^0.14.3, tweetnacl@~0.14.0')).to.equal('^0.14.3 ~0.14.0');
     done();
   });
