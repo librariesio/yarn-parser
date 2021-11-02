@@ -5,6 +5,10 @@ var fs = require('fs')
 var manifestParser = require('../lib/manifest-parser');
 
 describe('splitNameAndVersionString', function() {
+  it('Correctly parses packages with multiple requirements', function(done) {
+    expect(manifestParser.getNameFromVersionString('tweetnacl@^0.14.3, tweetnacl@~0.14.0')).to.equal('tweetnacl');
+    done();
+  });
   it('Correctly parses packages with @ symbol in name', function(done) {
     expect(manifestParser.getNameFromVersionString('@yarnpkg/lockfile@^1.0.0')).to.equal('@yarnpkg/lockfile');
     expect(manifestParser.getNameFromVersionString('@babel/code-frame@7.0.0-beta.44')).to.equal('@babel/code-frame');
