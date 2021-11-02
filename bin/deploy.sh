@@ -10,5 +10,3 @@ gcloud --quiet container images describe ${TAGGED_IMAGE} || { status=$?; echo "C
 gcloud --quiet container images add-tag ${TAGGED_IMAGE} gcr.io/${GOOGLE_PROJECT}/yarn-parser:latest
 
 kubectl set image deployment/yarn-parser yarn-parser-container=${TAGGED_IMAGE}
-
-
