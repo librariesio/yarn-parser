@@ -1,4 +1,4 @@
-FROM node:9.8.0-alpine
+FROM node:14.2.0-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
@@ -9,4 +9,4 @@ RUN yarn install --production
 
 COPY . /usr/src/app
 
-CMD npm start
+CMD yarn start
